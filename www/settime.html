@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+      <script src="scripts/jquery-1.9.1.js" type="text/javascript"></script>
+      <link href="styles/main.css" rel="stylesheet" />
+      <script type="text/javascript">
+          $(function () {
+              alert($("img[name = 'imgTest']").length);
+              imgJump('imgTest', 250);
+          });
+          var rtnNum = 0;
+          function imgJump(name,interval) {
+              rtnNum = setTimeout(function () {
+                  $('img[name=' + name + ']').removeClass().addClass('up');
+                  rtnNum = setTimeout(function () {
+                      $('img[name=' + name + ']').removeClass();
+                      rtnNum = setTimeout(function () {
+                          $('img[name=' + name + ']').removeClass().addClass('down');
+                          rtnNum = setTimeout(function () {
+                              $('img[name=' + name + ']').removeClass();
+                              imgJump(name, interval);
+                          }, interval);
+                      }, interval);
+                  }, interval);
+              }, interval);
+          }
+      </script>
+    </head>
+    <body>
+      <input type="button" value="test" onclick="objTest.setUserId();" />
+        <div id="test">
+            <ul id="ulOnline">
+                <li><img id="imgTest" name="imgTest" src="content/headIcon/2.gif" ondblclick="clearTimeout(rtnNum);"/></li>
+            </ul>
+        </div>
+    </body>
+</html>

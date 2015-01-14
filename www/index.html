@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Wayou">
+        <meta name="description" content="hichat | a simple chat application built with node.js and websocket">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>hichat</title>
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <script type="text/javascript" src="scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+        <script type="text/javascript" src="scripts/jquery.ui.draggable.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="banner">
+                <h1>Let's Chat</h1>
+                <span id="status"></span>
+            </div>
+            <div id="historyMsg">
+            </div>
+            <div class="controls" >
+                <div class="items">
+                    <input id="colorStyle" type="color" placeHolder='#000' title="font color" />
+                    <input id="emoji" type="button" value="emoji" title="emoji" />
+                    <label for="sendImage" class="imageLable">
+                        <input type="button" value="image"  />
+                        <input id="sendImage" type="file" value="image"/>
+                    </label>
+                    <input id="btnBg" type="button" value="BkGnd" title="back ground" />
+                    <input id="clearBtn" type="button" value="clear" title="clear screen" />
+                </div>
+                <textarea id="messageInput" placeHolder="enter to send"></textarea>
+                <input id="sendBtn" type="button" value="SEND">
+                <div id="emojiWrapper">
+                </div>
+                <div id="bgWrapper">
+                </div>
+            </div>
+        </div>
+        <div id="loginWrapper">
+            <p id="info">connecting to server...</p>
+            <div id="nickWrapper">
+                <input type="text" placeHolder="nickname" id="nicknameInput" />
+                <input type="button" value="OK" id="loginBtn" />
+            </div>
+            <div id="headIcon">
+            </div>
+            <div id="divSelected">
+              <img id="imgSelected" src="content/headIcon/dummy.gif" style="width:100px;height:100px;"/>
+            </div>
+        </div>
+        <div id="userPanel" class="draggable"></div>
+        <div id="bottomBar"><div class="panelTrigger"><img id="panelTrigger" src="content/images/panel.png" /></div></div>
+        <div id="noticeWrapper"></div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="scripts/hichat.js"></script>
+    </body>
+</html>
